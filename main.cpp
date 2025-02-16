@@ -1,10 +1,10 @@
 #include <iostream>
 
 int main(){
-
+  
   int a = 123;
   float b = 12.4f;
-  auto c = a * b;
+  double c = a * b;
 
   std::cout << c ;
 
