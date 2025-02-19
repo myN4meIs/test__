@@ -29,6 +29,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
        name: test_artifact
-       path:  build/
+       path:  build/test
        compression-level: 9
        retention-days: 1
