@@ -5,8 +5,7 @@ on:
     
 
 jobs:
-  build:
-
+  build_linux:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +27,35 @@ jobs:
     - name: Upload the Build
       uses: actions/upload-artifact@v4
       with:
-       name: test_artifact
+       name: test_linux
        path:  build/test
+       compression-level: 9
+       retention-days: 1
+
+
+####### WINDOWS ########
+  build_win:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v4
+  # - name: Install CMake
+  #    run: sudo apt-get install cmake
+  #  - name: Create Build Directory
+  #    run: mkdir build
+      
+    - name: Configure Project
+      run: cmake -S . -B build
+      
+    - name: Build Project
+      run: cmake --build build
+
+    - name: List builded files
+      run: dir
+      
+    - name: Upload the Build
+      uses: actions/upload-artifact@v4
+      with:
+       name: test_windows
+       path:  build/
        compression-level: 9
        retention-days: 1
