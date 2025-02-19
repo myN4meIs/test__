@@ -44,10 +44,10 @@ jobs:
   #    run: mkdir build
       
     - name: Configure Project
-      run: cmake -S . -B build
+      run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
       
     - name: Build Project
-      run: cmake --build build
+      run: cmake --build build --config Release
 
     - name: List builded files
       run: dir
